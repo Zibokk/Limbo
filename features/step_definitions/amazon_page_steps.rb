@@ -11,8 +11,8 @@ And(/^I click button sign in$/) do
 end
 
 And(/^I enter valid username and password for amazon account$/) do
-  fill_in('email', :with => 'nick.cornovan@gmail.com')
-  fill_in('password', :with => 'parenco')
+  fill_in('email', :with => 'xxx')
+  fill_in('password', :with => 'xxx')
   click_button('Sign in using our secure server')
 end
 
