@@ -1,0 +1,1 @@
+std_opts = "-r features/support/ -r features/step_definitions --quiet --format CucumberStatistics::Formatter --format progress --format junit -o test-reports --strict --tags ~@wip --tags ~@todo
