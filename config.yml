@@ -1,0 +1,74 @@
+:application_base_urls:
+  :local: "http://www.local-change.org:3000"
+  :demo: "http://change:theonlyconstantischange@www.demo-change.org"
+  :pickle: "http://change:theonlyconstantischange@www.pickle-change.org"
+  :chicken: "http://change:theonlyconstantischange@www.chicken-change.org"
+  :duck: "http://change:theonlyconstantischange@www.duck-change.org"
+  :staging: "http://change:theonlyconstantischange@www.staging-change.org"
+  :production: "http://www.change.org"
+
+:sauce_labs:
+  :base_url: "http://changeorgtech:fac19d5e-1acb-4310-8dac-287ede0a480a@ondemand.saucelabs.com:80"
+  :browsers:
+    :sauce_firefox:
+      :preset: :firefox
+      :platform: "XP"
+      :version: "11"
+    :sauce_firefox_mac:
+      :preset: :firefox
+      :platform: "Mac 10.6"
+      :version: "14"
+    :sauce_chrome:
+      :preset: :chrome
+      :platform: "XP"
+    :sauce_chrome_mac:
+      :preset: :chrome
+      :platform: "Mac 10.6"
+    :sauce_ie7:
+      :preset: :ie
+      :platform: "XP"
+      :version: "7"
+    :sauce_ie8:
+      :preset: :ie
+      :platform: "XP"
+      :version: "8"
+    :sauce_ie9:
+      :preset: :internet_explorer
+      :platform: "Windows 2008"
+      :version: "9"
+
+:test_variables:
+  - :action_alert
+  - :petition
+  - :user
+  - :identified_user
+  - :organization
+  - :petition_creator
+
+:test_petition_urls:
+  :production:
+    - "http://www.change.org/petitions/test-test-266"
+    - "http://www.change.org/petitions/photo-upload"
+
+:facebook_credentials:
+  :production:
+    :id: "48409868550"
+    :secret: "4486154b7edf188b730f31a4bc1ebc06"
+  :staging:
+    :id: "20098404986"
+    :secret: "ecbe192306cab35b045ea5ffb069d9b1"
+  :local:
+    :id: "189752094378413"
+    :secret: "85ab6ecb73817f8fffc7fee0d7c14415"
+  :demo:
+    :id: "199952583363746"
+    :secret: "1a6287090a82e6379e5fdf7ed38989fb"
+  :pickle:
+    :id: "227271614001718"
+    :secret: "422ecd4fd478f2bb1072669bbf1bfafc"
+  :chicken:
+    :id: "293653340658441"
+    :secret: "7162024e54e7a8633577b5b48983e006"
+  :duck:
+    :id: "316488855105630"
+    :secret: "4592f62b7429ca1625ccf0d33f931519"

@@ -1,12 +1,25 @@
 source "https://rubygems.org"
-# # Test frameworks
+
+# Test frameworks
 gem "cucumber"
 gem "capybara"
-gem "firefox"
-gem "selenium-webdriver"
-# # Debugging
+gem "poltergeist", require: "capybara/poltergeist"
+gem "rspec"
+
+# Debugging
 gem "debugger"
-# # Support
-gem "cucumber_statistics"
-#gem 'capybara-screenshot', :group => :test
-#gem "capybara-webkit"
+gem "pry"
+gem "pry-nav"
+gem "pry-coolline"
+
+# Support
+gem "faker"
+gem "activesupport", require: "active_support/all"
+gem "rest-client"
+gem "fb_graph"
+
+# Code coverage
+gem "simplecov"
+
+# Command line interface
+gem "thor"

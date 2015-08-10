@@ -1,0 +1,11 @@
+@javascript 
+Feature: Say Hello
+
+Background:
+  Given I have loaded the 140poof home page
+
+Scenario: I want to say hello to 140
+  When I want to enter my name
+  And I want enter my email
+  And I want to answer how many I help you
+  Then I should be notified that my message went through

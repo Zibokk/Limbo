@@ -1,0 +1,26 @@
+## Navigation
+
+def go_to_alumnipage
+  reload_page
+  visit('/alumni')
+end
+
+def go_to_alumni_giving
+  reload_page
+  visit('/alumni/giving')
+end
+
+def go_to_alumni_services_and_benefits
+  reload_page
+  visit('/alumni/services-and-benefits')
+end
+
+def go_to_alumni_news_and_calendar
+  reload_page
+  visit('/alumni/news-and-calendar')
+end
+
+## Assertions
+def verify_alumni
+  page.should have_content('ALUMNI AWARDS')
+end

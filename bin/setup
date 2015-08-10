@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+# Output a message with pretty colors
+function colorprint() {
+  echo -e "\E[32m[BLACKBOX]: $1\E[0m"
+}
+
+# Run $2 unless $1 exists
+function run_unless_installed() {
+  command -v "$1" >/dev/null 2>&1 || {
+    colorprint "Installing $1..."
+    eval "$2"
+  }
+}
+
+# Install a Homebrew formula unless already installed
+function install_formula() {
+  brew list $1 >/dev/null 2>&1
+  if [ $? -ne 0 ]; then
+    colorprint "Installing $1..."
+    brew install "$1"
+  fi
+}
+
+###
+
+colorprint "Setting up Blackbox..."
+
+# Install Homebrew
+run_unless_installed 'brew' \
+  'ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"'
+
+# Update Homebrew
+brew update
+
+# Install Homebrew dependencies
+install_formula 'chromedriver'
+install_formula 'phantomjs'
+
+# Install Bundler
+run_unless_installed 'bundle' 'gem install bundler'
+
+# Rehash rbenv shims
+(command -v rbenv && rbenv rehash) >/dev/null 2>&1
+
+# Install Ruby gems
+(bundle check || "true") >/dev/null 2>&1
+if [ $? -ne 0 ]; then
+  bundle install --binstubs=.bundle/bin
+fi
+
+colorprint "Done."

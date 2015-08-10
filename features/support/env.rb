@@ -1,25 +1,19 @@
-require 'cucumber_statistics/autoload'
-require 'rubygems'
-require 'capybara'
-require 'capybara/dsl'
-require 'rspec'
+#!/usr/bin/env ruby
 
+require "bundler"
 
+Bundler.require
 
-Capybara.run_server = false
-Capybara.default_driver = :selenium
-Capybara.default_selector = :css
-##Capybara.default_selector = :xpath
-##Capybara.ignore_hidden_elements = true
-##!Capybara.ignore_hidden_elements = false
-##Capybara.visible_text_only = true
+$LOAD_PATH.unshift(File.expand_path("../../../lib", __FILE__))
 
-module Helpers
-  def without_resynchronize
-    page.driver.options[:resynchronize] = false
-    yield
-    page.driver.options[:resynchronize] = true
-  end
+SimpleCov.start do
+  add_filter "lib"
+  add_filter "features/support"
+
+  add_group "Step Definitions", "features/step_definitions"
+  add_group "Page Objects", "features/page_objects"
 end
 
-World(Capybara::DSL, Helpers)
+require "blackbox"
+
+Blackbox.setup
